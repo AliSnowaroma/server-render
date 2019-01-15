@@ -3,6 +3,7 @@
     '@babel/react'
   ],
   "plugins": [
-    "@babel/plugin-proposal-function-bind"
+    "@babel/plugin-proposal-function-bind",
+    "react-hot-loader/babel"
   ]
 }

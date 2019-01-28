@@ -1,11 +1,12 @@
 const express = require('express')
 const ReactSSR = require('react-dom/server')
-const serverEntry = require("../dist/server-entry").default;
 const path = require('path')
 const fs = require('fs');
 
 const app = express();
 const isDev = process.env.NODE_ENV === "development"
+
+console.log(isDev)
 
 if(!isDev){
   const template = fs.readFileSync(path.join(__dirname,"../dist/index.html"),'utf8')
@@ -16,7 +17,7 @@ if(!isDev){
     res.send(template.replace("<!-- app -->",appString))
   })
 } else {
-  const devStatic = require('./util/dev-static');
+  const devStatic = require('./utils/dev-static');
   devStatic(app)
 }
 
